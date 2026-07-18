@@ -1,0 +1,25 @@
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+
+const isPublicRoute = createRouteMatcher([
+  "/",
+  "/about",
+  "/menu",
+  "/gallery",
+  "/events",
+  "/reviews",
+  "/contact",
+  "/api/menu",
+  "/api/auth/webhooks",
+  "/sign-in",
+  "/sign-up",
+]);
+
+export default clerkMiddleware(async (auth, req) => {
+  if (!isPublicRoute(req)) await auth.protect();
+});
+
+export const config = {
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|images\\.unsplash\\.com).*)",
+  ],
+};
