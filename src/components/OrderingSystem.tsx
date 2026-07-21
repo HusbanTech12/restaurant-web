@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, ShoppingBag, X, ArrowRight, Trash2, CheckCircle } from "lucide-react";
+import { Plus, Minus, ShoppingBag, X, ArrowRight, Trash2, CheckCircle, Loader2 } from "lucide-react";
 import { menuItems, categories } from "@/data/menu";
 import GlowCard from "@/components/GlowCard";
 
@@ -18,7 +18,10 @@ export default function OrderingSystem() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [cart, setCart] = useState<CartItem[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
-  const [checkedOut, setCheckedOut] = useState(false);
+  const [checkoutStep, setCheckoutStep] = useState<null | "form" | "done">(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [customer, setCustomer] = useState({ customerName: "", customerEmail: "", customerPhone: "" });
 
   const filtered = activeCategory === "All"
     ? menuItems
@@ -51,13 +54,39 @@ export default function OrderingSystem() {
   const total = cart.reduce((sum, ci) => sum + ci.price * ci.quantity, 0);
   const itemCount = cart.reduce((sum, ci) => sum + ci.quantity, 0);
 
-  const handleCheckout = () => {
-    setCheckedOut(true);
-    setCart([]);
-    setCartOpen(false);
+  const handlePlaceOrder = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError("");
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...customer,
+          items: cart.map((ci) => ({
+            menuItemId: ci.id,
+            name: ci.name,
+            price: ci.price,
+            quantity: ci.quantity,
+          })),
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Order failed");
+      }
+      setCart([]);
+      setCartOpen(false);
+      setCheckoutStep("done");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
-  if (checkedOut) {
+  if (checkoutStep === "done") {
     return (
       <motion.div
         initial={{ opacity: 0 }}
@@ -156,6 +185,67 @@ export default function OrderingSystem() {
         </div>
       )}
 
+      {checkoutStep === "form" && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+          onClick={() => setCheckoutStep(null)}
+        >
+          <motion.div
+            initial={{ scale: 0.95 }}
+            animate={{ scale: 1 }}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-bold text-accent">Checkout</h3>
+              <button onClick={() => setCheckoutStep(null)} className="text-muted hover:text-accent">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <p className="text-sm text-muted mb-4">Total: <span className="font-bold text-accent">${total.toFixed(2)}</span> ({itemCount} items)</p>
+            <form onSubmit={handlePlaceOrder} className="space-y-3">
+              <input
+                type="text"
+                name="customerName"
+                placeholder="Full Name"
+                required
+                value={customer.customerName}
+                onChange={(e) => setCustomer({ ...customer, customerName: e.target.value })}
+                className="w-full px-4 py-3 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+              />
+              <input
+                type="email"
+                name="customerEmail"
+                placeholder="Email"
+                required
+                value={customer.customerEmail}
+                onChange={(e) => setCustomer({ ...customer, customerEmail: e.target.value })}
+                className="w-full px-4 py-3 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+              />
+              <input
+                type="tel"
+                name="customerPhone"
+                placeholder="Phone (optional)"
+                value={customer.customerPhone}
+                onChange={(e) => setCustomer({ ...customer, customerPhone: e.target.value })}
+                className="w-full px-4 py-3 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+              />
+              {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 rounded-xl transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <ShoppingBag className="w-4 h-4" />}
+                {submitting ? "Placing Order..." : "Place Order"}
+              </button>
+            </form>
+          </motion.div>
+        </motion.div>
+      )}
+
       {itemCount > 0 && (
         <motion.div
           initial={{ y: 100 }}
@@ -175,7 +265,7 @@ export default function OrderingSystem() {
                 {cartOpen ? "Hide" : "View"} Cart
               </button>
               <button
-                onClick={handleCheckout}
+                onClick={() => setCheckoutStep("form")}
                 className="px-6 py-2.5 bg-primary hover:bg-primary-dark text-white rounded-xl text-sm font-semibold transition-colors flex items-center gap-2"
               >
                 Checkout

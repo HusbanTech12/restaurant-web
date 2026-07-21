@@ -20,6 +20,7 @@ export async function POST(req: Request) {
 
     if (msg.tool_calls) {
       for (const call of msg.tool_calls) {
+        if (call.type !== "function") continue;
         const args = JSON.parse(call.function.arguments);
         let result;
 
