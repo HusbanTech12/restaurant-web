@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronRight, LogIn } from "lucide-react";
+import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -21,6 +22,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const { isSignedIn } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -124,17 +126,31 @@ export default function Header() {
                 />
               </Link>
 
-              <Link
-                href="/signin"
-                className={`hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
-                  scrolled
-                    ? "text-accent/70 hover:text-accent border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50"
-                    : "text-white/80 hover:text-white border border-white/20 hover:border-white/40 backdrop-blur-sm"
-                }`}
-              >
-                <LogIn className="w-3.5 h-3.5" />
-                Sign In
-              </Link>
+              {isSignedIn ? (
+                <UserButton
+                  appearance={{
+                    elements: {
+                      userButtonAvatarBox: "w-8 h-8",
+                      userButtonTrigger: `rounded-full transition-all duration-300 ${
+                        scrolled ? "" : "ring-2 ring-white/30"
+                      }`,
+                    },
+                  }}
+                />
+              ) : (
+                <SignInButton mode="modal">
+                  <button
+                    className={`hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+                      scrolled
+                        ? "text-accent/70 hover:text-accent border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50"
+                        : "text-white/80 hover:text-white border border-white/20 hover:border-white/40 backdrop-blur-sm"
+                    }`}
+                  >
+                    <LogIn className="w-3.5 h-3.5" />
+                    Sign In
+                  </button>
+                </SignInButton>
+              )}
 
               <button
                 onClick={() => setMobileOpen(true)}
@@ -226,13 +242,19 @@ export default function Header() {
               </nav>
 
               <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-zinc-100">
-                <Link
-                  href="/signin"
-                  className="flex items-center justify-center gap-2 w-full py-3 bg-accent text-white rounded-xl text-sm font-medium hover:bg-accent/90 transition-all duration-200 shadow-md"
-                >
-                  <LogIn className="w-4 h-4" />
-                  Sign In
-                </Link>
+                {isSignedIn ? (
+                  <div className="flex items-center justify-center gap-3">
+                    <UserButton />
+                    <span className="text-sm text-accent/70">My Account</span>
+                  </div>
+                ) : (
+                  <SignInButton mode="modal">
+                    <button className="flex items-center justify-center gap-2 w-full py-3 bg-accent text-white rounded-xl text-sm font-medium hover:bg-accent/90 transition-all duration-200 shadow-md">
+                      <LogIn className="w-4 h-4" />
+                      Sign In
+                    </button>
+                  </SignInButton>
+                )}
               </div>
             </motion.div>
           </>

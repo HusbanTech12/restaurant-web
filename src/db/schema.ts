@@ -1,4 +1,4 @@
-import { pgTable, serial, text, integer, decimal, boolean, timestamp, jsonb } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, integer, decimal, boolean, timestamp } from "drizzle-orm/pg-core";
 
 export const menuItems = pgTable("menu_items", {
   id: serial("id").primaryKey(),
