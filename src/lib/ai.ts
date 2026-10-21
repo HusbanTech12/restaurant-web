@@ -4,9 +4,30 @@ import { db } from "@/lib/db";
 import { menuItems, reservations } from "@/db/schema";
 import { eq, and, like, or, sql } from "drizzle-orm";
 
-export const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+let openaiClient: OpenAI | null = null;
+let groqClient: Groq | null = null;
 
-export const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+export function getOpenAI() {
+  if (!openaiClient) {
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      throw new Error("OPENAI_API_KEY is not set");
+    }
+    openaiClient = new OpenAI({ apiKey });
+  }
+  return openaiClient;
+}
+
+export function getGroq() {
+  if (!groqClient) {
+    const apiKey = process.env.GROQ_API_KEY;
+    if (!apiKey) {
+      throw new Error("GROQ_API_KEY is not set");
+    }
+    groqClient = new Groq({ apiKey });
+  }
+  return groqClient;
+}
 
 export const tools: OpenAI.Chat.Completions.ChatCompletionTool[] = [
   {

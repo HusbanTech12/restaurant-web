@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { openai, tools, getMenu, checkAvailability } from "@/lib/ai";
+import { getOpenAI, tools, getMenu, checkAvailability } from "@/lib/ai";
 
 const systemPrompt = `You are a helpful restaurant concierge for Saffron Karachi Grill in Clifton, Karachi. Prices are in Pakistani rupees.
 Help users with: menu recommendations (dietary, price, taste), reservation availability, and general questions about the restaurant.
@@ -7,7 +7,15 @@ Be friendly and concise. If asked about the menu, use the get_menu tool. If aske
 
 export async function POST(req: Request) {
   try {
+    if (!process.env.OPENAI_API_KEY) {
+      return NextResponse.json(
+        { error: "Chat is not configured. Set OPENAI_API_KEY to enable it." },
+        { status: 503 },
+      );
+    }
+
     const { messages } = await req.json();
+    const openai = getOpenAI();
 
     const completion = await openai.chat.completions.create({
       model: "gpt-4o",
