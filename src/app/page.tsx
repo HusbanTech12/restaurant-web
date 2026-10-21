@@ -73,7 +73,7 @@ function SectionHeader({ label, title, highlight }: { label: string; title: stri
       >
         {label}
       </motion.span>
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mt-3 mb-4">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-4">
         {title}{highlight && <> <span className="text-primary">{highlight}</span></>}
       </h2>
     </motion.div>
@@ -82,10 +82,10 @@ function SectionHeader({ label, title, highlight }: { label: string; title: stri
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-[#0a0a0a] text-zinc-100">
       <Hero />
 
-      <section className="py-20 sm:py-28 bg-card">
+      <section className="py-20 sm:py-28 bg-[#111111]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader label="Why Choose Us" title="The Saffron" highlight="Difference" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -98,16 +98,16 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.12 }}
                 whileHover={{ y: -10, scale: 1.04 }}
               >
-                <GlowCard className="text-center bg-white rounded-2xl p-6 sm:p-8 border border-border/50 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-200">
+                <GlowCard className="text-center bg-[#171717] rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-200">
                 <motion.div
                   whileHover={{ rotate: [0, -15, 15, -15, 0], scale: 1.15 }}
                   transition={{ duration: 0.4 }}
-                  className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-primary group-hover:text-white transition-all duration-200"
+                  className="w-14 h-14 bg-primary/15 rounded-2xl flex items-center justify-center mx-auto mb-5"
                 >
-                  <feature.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-200" />
+                  <feature.icon className="w-6 h-6 text-primary" />
                 </motion.div>
-                <h3 className="text-lg font-semibold text-accent mb-2 group-hover:text-primary transition-colors duration-200">{feature.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-primary transition-colors duration-200">{feature.title}</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">{feature.description}</p>
                 </GlowCard>
               </motion.div>
             ))}
@@ -117,14 +117,14 @@ export default function Home() {
 
       <FeaturedMenu />
 
-      <section className="py-20 sm:py-28 bg-card relative overflow-hidden">
+      <section className="py-20 sm:py-28 bg-[#111111] relative overflow-hidden">
         <motion.div
-          className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+          className="absolute top-20 right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
           animate={{ scale: [1, 1.2, 1], rotate: [0, 45, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-20 left-20 w-48 h-48 bg-primary/5 rounded-full blur-3xl"
+          className="absolute bottom-20 left-20 w-48 h-48 bg-primary/10 rounded-full blur-3xl"
           animate={{ scale: [1.2, 1, 1.2] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -150,7 +150,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-3xl sm:text-4xl font-bold text-accent mt-3 mb-4"
+                className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4"
               >
                 A Passion for <br />
                 <span className="text-primary">Exceptional Dining</span>
@@ -160,7 +160,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.35 }}
-                className="text-muted leading-relaxed mb-6"
+                className="text-zinc-400 leading-relaxed mb-6"
               >
                 Saffron opened in Clifton in 2015 with one idea: a Karachi table should feel like a good dawat. 
                 The kitchen still cooks karahi in the handi, biryani on dum, and boti over charcoal.
@@ -170,7 +170,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.45 }}
-                className="text-muted leading-relaxed mb-8"
+                className="text-zinc-400 leading-relaxed mb-8"
               >
                 Families book us for Sunday lunch. Offices book the private section for client dinners. 
                 If you are ordering home, pickup is from Boat Basin and delivery covers Clifton and DHA.
@@ -183,7 +183,7 @@ export default function Home() {
               >
                 <Link
                   href="/about"
-                  className="group inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300"
+                  className="group inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/15 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300"
                 >
                   Learn More About Us
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -201,7 +201,7 @@ export default function Home() {
               <motion.div
                 whileHover={{ scale: 1.04 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-200"
+                className="rounded-2xl overflow-hidden shadow-xl shadow-black/40 hover:shadow-2xl transition-shadow duration-200 border border-white/10"
               >
                 <motion.img
                   whileHover={{ scale: 1.12 }}
@@ -234,9 +234,9 @@ export default function Home() {
 
       <ReviewCarousel />
 
-      <section className="py-20 sm:py-28 bg-background relative overflow-hidden">
+      <section className="py-20 sm:py-28 bg-[#0a0a0a] relative overflow-hidden">
         <motion.div
-          className="absolute -top-32 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+          className="absolute -top-32 -right-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
           animate={{ scale: [1, 1.3, 1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -261,7 +261,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mt-3 mb-4"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-4"
             >
               Ready for an <span className="text-primary">Unforgettable</span> Meal?
             </motion.h2>
@@ -270,7 +270,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.35 }}
-              className="text-muted text-lg mb-8 max-w-2xl mx-auto"
+              className="text-zinc-400 text-lg mb-8 max-w-2xl mx-auto"
             >
               A family dinner, a client lunch, or karahi at home — the table is in Boat Basin, Clifton.
             </motion.p>
@@ -301,7 +301,7 @@ export default function Home() {
               >
                 <Link
                   href="/order"
-                  className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white px-8 py-3.5 rounded-full font-semibold transition-all duration-200 hover:shadow-2xl hover:shadow-black/20"
+                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/15 px-8 py-3.5 rounded-full font-semibold transition-all duration-200"
                 >
                   Order Online
                 </Link>
@@ -310,6 +310,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

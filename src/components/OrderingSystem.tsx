@@ -93,7 +93,7 @@ export default function OrderingSystem() {
         animate={{ opacity: 1 }}
         className="text-center py-20"
       >
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div className="w-16 h-16 bg-green-500/15 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle className="w-8 h-8 text-green-600" />
         </div>
         <h3 className="text-2xl font-bold text-accent mb-2">Order Placed Successfully!</h3>
@@ -123,8 +123,8 @@ export default function OrderingSystem() {
             onClick={() => setActiveCategory(cat)}
             className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
               activeCategory === cat
-                ? "bg-accent text-white shadow-md"
-                : "bg-zinc-100 text-muted hover:bg-zinc-200"
+                ? "bg-primary text-white shadow-md shadow-primary/20"
+                : "bg-white/5 text-muted hover:bg-white/10 border border-white/10"
             }`}
           >
             {cat}
@@ -166,7 +166,7 @@ export default function OrderingSystem() {
                   <p className="text-xs text-muted mb-3 line-clamp-2">{item.description}</p>
                   <button
                     onClick={() => addToCart(item)}
-                    className="w-full bg-accent hover:bg-accent/90 text-white text-sm font-medium py-2.5 rounded-xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-1.5"
+                    className="w-full bg-zinc-800 hover:bg-zinc-700 text-white text-sm font-medium py-2.5 rounded-xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-1.5"
                   >
                     <Plus className="w-4 h-4" />
                     Add to Order
@@ -196,7 +196,7 @@ export default function OrderingSystem() {
             initial={{ scale: 0.95 }}
             animate={{ scale: 1 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl"
+            className="bg-zinc-950 rounded-2xl p-6 w-full max-w-md shadow-2xl border border-white/10"
           >
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-accent">Checkout</h3>
@@ -213,7 +213,7 @@ export default function OrderingSystem() {
                 required
                 value={customer.customerName}
                 onChange={(e) => setCustomer({ ...customer, customerName: e.target.value })}
-                className="w-full px-4 py-3 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
               />
               <input
                 type="email"
@@ -222,7 +222,7 @@ export default function OrderingSystem() {
                 required
                 value={customer.customerEmail}
                 onChange={(e) => setCustomer({ ...customer, customerEmail: e.target.value })}
-                className="w-full px-4 py-3 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
               />
               <input
                 type="tel"
@@ -230,7 +230,7 @@ export default function OrderingSystem() {
                 placeholder="Phone (optional)"
                 value={customer.customerPhone}
                 onChange={(e) => setCustomer({ ...customer, customerPhone: e.target.value })}
-                className="w-full px-4 py-3 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
               />
               {error && <p className="text-red-500 text-sm text-center">{error}</p>}
               <button
@@ -250,7 +250,7 @@ export default function OrderingSystem() {
         <motion.div
           initial={{ y: 100 }}
           animate={{ y: 0 }}
-          className="fixed bottom-0 left-0 right-0 bg-white border-t border-border shadow-2xl z-40 p-4"
+          className="fixed bottom-0 left-0 right-0 bg-zinc-950 border-t border-white/10 shadow-2xl z-40 p-4"
         >
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div>
@@ -260,7 +260,7 @@ export default function OrderingSystem() {
             <div className="flex gap-3">
               <button
                 onClick={() => setCartOpen(!cartOpen)}
-                className="px-5 py-2.5 border border-border rounded-xl text-sm font-medium hover:bg-zinc-50 transition-colors"
+                className="px-5 py-2.5 border border-border rounded-xl text-sm font-medium hover:bg-white/5 transition-colors"
               >
                 {cartOpen ? "Hide" : "View"} Cart
               </button>
@@ -284,7 +284,7 @@ export default function OrderingSystem() {
               >
                 <div className="border-t border-border pt-4 space-y-3 max-h-64 overflow-y-auto">
                   {cart.map((ci) => (
-                    <div key={ci.id} className="flex items-center justify-between bg-zinc-50 rounded-xl p-3">
+                    <div key={ci.id} className="flex items-center justify-between bg-zinc-900 rounded-xl p-3 border border-white/5">
                       <div className="flex items-center gap-3">
                         <img src={ci.image} alt={ci.name} className="w-12 h-12 rounded-lg object-cover" />
                         <div>
@@ -296,14 +296,14 @@ export default function OrderingSystem() {
                         <div className="flex items-center gap-1">
                           <button
                             onClick={() => updateQty(ci.id, -1)}
-                            className="w-7 h-7 bg-white border border-border rounded-lg flex items-center justify-center hover:bg-zinc-100 transition-colors"
+                            className="w-7 h-7 bg-zinc-800 border border-border rounded-lg flex items-center justify-center hover:bg-zinc-700 transition-colors"
                           >
                             <Minus className="w-3 h-3" />
                           </button>
                           <span className="w-8 text-center text-sm font-medium">{ci.quantity}</span>
                           <button
                             onClick={() => updateQty(ci.id, 1)}
-                            className="w-7 h-7 bg-white border border-border rounded-lg flex items-center justify-center hover:bg-zinc-100 transition-colors"
+                            className="w-7 h-7 bg-zinc-800 border border-border rounded-lg flex items-center justify-center hover:bg-zinc-700 transition-colors"
                           >
                             <Plus className="w-3 h-3" />
                           </button>

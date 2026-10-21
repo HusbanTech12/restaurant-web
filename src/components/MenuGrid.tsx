@@ -38,8 +38,8 @@ export default function MenuGrid() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === cat
-                    ? "bg-accent text-white shadow-md"
-                    : "bg-zinc-100 text-muted hover:bg-zinc-200"
+                    ? "bg-primary text-white shadow-md shadow-primary/20"
+                    : "bg-white/5 text-muted hover:bg-white/10 border border-white/10"
                 }`}
               >
                 {cat}
@@ -54,7 +54,7 @@ export default function MenuGrid() {
               placeholder="Search menu..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
             />
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function MenuGrid() {
                   {item.dietary && item.dietary.length > 0 && (
                     <div className="flex gap-1.5 flex-wrap">
                       {item.dietary.map((d) => (
-                        <span key={d} className="px-2 py-0.5 bg-green-50 text-green-700 text-xs rounded-md font-medium">
+                        <span key={d} className="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded-md font-medium">
                           {d}
                         </span>
                       ))}

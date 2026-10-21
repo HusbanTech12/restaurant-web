@@ -52,7 +52,7 @@ export default function ReservationForm() {
         animate={{ opacity: 1, scale: 1 }}
         className="text-center py-16"
       >
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div className="w-16 h-16 bg-green-500/15 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle className="w-8 h-8 text-green-600" />
         </div>
         <h3 className="text-2xl font-bold text-accent mb-2">Reservation Request Sent!</h3>
@@ -75,7 +75,7 @@ export default function ReservationForm() {
             value={form.name}
             onChange={handleChange}
             placeholder="Ahmed Khan"
-            className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+            className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
         </div>
         <div>
@@ -87,7 +87,7 @@ export default function ReservationForm() {
             value={form.email}
             onChange={handleChange}
             placeholder="ahmed@email.com"
-            className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+            className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
         </div>
         <div>
@@ -99,7 +99,7 @@ export default function ReservationForm() {
             value={form.phone}
             onChange={handleChange}
             placeholder="0300 1234567"
-            className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+            className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
         </div>
         <div>
@@ -110,7 +110,7 @@ export default function ReservationForm() {
               name="guests"
               value={form.guests}
               onChange={handleChange}
-              className="w-full pl-10 pr-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all appearance-none"
+              className="w-full pl-10 pr-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all appearance-none"
             >
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
                 <option key={n} value={n}>{n} {n === 1 ? "Guest" : "Guests"}</option>
@@ -129,7 +129,7 @@ export default function ReservationForm() {
               required
               value={form.date}
               onChange={handleChange}
-              className="w-full pl-10 pr-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+              className="w-full pl-10 pr-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
             />
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function ReservationForm() {
               value={form.time}
               onChange={handleChange}
               required
-              className="w-full pl-10 pr-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all appearance-none"
+              className="w-full pl-10 pr-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all appearance-none"
             >
               <option value="">Select a time</option>
               {["12:30 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM", "9:30 PM", "10:00 PM", "10:30 PM"].map((t) => (
@@ -159,7 +159,7 @@ export default function ReservationForm() {
           name="occasion"
           value={form.occasion}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+          className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
         >
           <option value="">None</option>
           <option value="birthday">Birthday</option>
@@ -178,7 +178,7 @@ export default function ReservationForm() {
           value={form.notes}
           onChange={handleChange}
           placeholder="Allergies, seating preferences, etc."
-          className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
+          className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
         />
       </div>
 

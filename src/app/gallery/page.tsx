@@ -5,7 +5,7 @@ import GalleryGrid from "@/components/GalleryGrid";
 export default function GalleryPage() {
   return (
     <>
-      <section className="relative pt-32 pb-16 bg-accent overflow-hidden">
+      <section className="relative pt-32 pb-16 bg-zinc-950 overflow-hidden">
         <div
           className="absolute inset-0 opacity-20"
           style={{

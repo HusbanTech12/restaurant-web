@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { menuItems, categories, formatPkr } from "@/data/menu";
 import GlowCard from "@/components/GlowCard";
 
@@ -34,8 +34,8 @@ export default function FeaturedMenu() {
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-150 ${
                 activeCategory === cat
-                  ? "bg-accent text-white shadow-md"
-                  : "bg-zinc-100 text-muted hover:bg-zinc-200 hover:scale-105"
+                  ? "bg-primary text-white shadow-md shadow-primary/20"
+                  : "bg-white/5 text-muted hover:bg-white/10 hover:text-white border border-white/10"
               }`}
             >
               {cat}
@@ -54,38 +54,38 @@ export default function FeaturedMenu() {
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
               >
-                <GlowCard className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all duration-200">
+                <GlowCard className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all duration-200">
                   <div className="relative h-52 overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.name}
                       className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-500"
                     />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                  <div className="absolute top-3 right-3 flex gap-2">
-                    {item.popular && (
-                      <span className="px-2.5 py-1 bg-primary text-white text-xs font-semibold rounded-full">
-                        Popular
-                      </span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    <div className="absolute top-3 right-3 flex gap-2">
+                      {item.popular && (
+                        <span className="px-2.5 py-1 bg-primary text-white text-xs font-semibold rounded-full">
+                          Popular
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="text-lg font-semibold text-accent">{item.name}</h3>
+                      <span className="text-lg font-bold text-primary">{formatPkr(item.price)}</span>
+                    </div>
+                    <p className="text-sm text-muted leading-relaxed mb-3">{item.description}</p>
+                    {item.dietary && item.dietary.length > 0 && (
+                      <div className="flex gap-1.5 flex-wrap">
+                        {item.dietary.map((d) => (
+                          <span key={d} className="px-2 py-0.5 bg-white/5 text-zinc-400 text-xs rounded-md border border-white/10">
+                            {d}
+                          </span>
+                        ))}
+                      </div>
                     )}
                   </div>
-                </div>
-                <div className="p-5">
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-accent">{item.name}</h3>
-                    <span className="text-lg font-bold text-primary">{formatPkr(item.price)}</span>
-                  </div>
-                  <p className="text-sm text-muted leading-relaxed mb-3">{item.description}</p>
-                  {item.dietary && item.dietary.length > 0 && (
-                    <div className="flex gap-1.5 flex-wrap">
-                      {item.dietary.map((d) => (
-                        <span key={d} className="px-2 py-0.5 bg-zinc-100 text-zinc-600 text-xs rounded-md">
-                          {d}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
                 </GlowCard>
               </motion.div>
             ))}
@@ -95,7 +95,7 @@ export default function FeaturedMenu() {
         <div className="text-center mt-12">
           <Link
             href="/menu"
-            className="group inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white px-8 py-3.5 rounded-full text-base font-semibold transition-all duration-200 hover:shadow-2xl hover:shadow-black/20 hover:scale-105 active:scale-95"
+            className="group inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/15 px-8 py-3.5 rounded-full text-base font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
           >
             View Full Menu
             <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-200" />

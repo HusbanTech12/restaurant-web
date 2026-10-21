@@ -37,7 +37,7 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           scrolled
-            ? "bg-white/80 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.05)]"
+            ? "bg-[#0a0a0a]/90 backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.06)]"
             : "bg-transparent"
         }`}
       >
@@ -57,18 +57,14 @@ export default function Header() {
                 <motion.span
                   animate={{ y: scrolled ? -2 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className={`block text-lg sm:text-xl font-bold tracking-tight leading-tight transition-colors duration-500 ${
-                    scrolled ? "text-accent" : "text-white"
-                  }`}
+                  className="block text-lg sm:text-xl font-bold tracking-tight leading-tight text-white transition-colors duration-500"
                 >
                   Saffron
                 </motion.span>
                 <motion.span
                   animate={{ y: scrolled ? -2 : 0, opacity: scrolled ? 0.6 : 0.7 }}
                   transition={{ duration: 0.3 }}
-                  className={`block text-[10px] sm:text-xs -mt-0.5 tracking-[0.2em] uppercase transition-colors duration-500 ${
-                    scrolled ? "text-accent/60" : "text-white/60"
-                  }`}
+                  className="block text-[10px] sm:text-xs -mt-0.5 tracking-[0.2em] uppercase text-white/60 transition-colors duration-500"
                 >
                   Karachi Grill
                 </motion.span>
@@ -82,11 +78,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`relative px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-300 group ${
-                      scrolled
-                        ? "text-accent/70 hover:text-accent"
-                        : "text-white/80 hover:text-white"
-                    }`}
+                    className="relative px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-300 group text-white/80 hover:text-white"
                   >
                     {link.label}
                     <motion.span
@@ -96,9 +88,7 @@ export default function Header() {
                         opacity: isActive ? 1 : 0,
                       }}
                       transition={{ duration: 0.3 }}
-                      className={`absolute bottom-0 left-3 right-3 h-0.5 rounded-full origin-left ${
-                        scrolled ? "bg-primary" : "bg-white"
-                      }`}
+                      className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full origin-left bg-primary"
                     />
                     <span className="absolute inset-0 rounded-lg transition-all duration-200 opacity-0 group-hover:opacity-100 bg-current/5" />
                   </Link>
@@ -111,8 +101,8 @@ export default function Header() {
                 href="/reservations"
                 className={`relative px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 overflow-hidden group ${
                   scrolled
-                    ? "bg-accent text-white hover:bg-accent/90 shadow-lg shadow-black/10"
-                    : "bg-white text-accent hover:bg-white/90 shadow-lg shadow-black/10"
+                    ? "bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/20"
+                    : "bg-white text-zinc-900 hover:bg-white/90 shadow-lg shadow-black/10"
                 }`}
               >
                 <span className="relative z-10">Reserve a Table</span>
@@ -126,11 +116,7 @@ export default function Header() {
 
               <button
                 onClick={() => setMobileOpen(true)}
-                className={`lg:hidden p-2.5 rounded-xl transition-all duration-200 ${
-                  scrolled
-                    ? "text-accent hover:bg-zinc-100 hover:shadow-sm"
-                    : "text-white hover:bg-white/10 backdrop-blur-sm"
-                }`}
+                className="lg:hidden p-2.5 rounded-xl transition-all duration-200 text-white hover:bg-white/10 backdrop-blur-sm"
                 aria-label="Open menu"
               >
                 <Menu className="w-5 h-5" />
@@ -155,7 +141,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 lg:hidden"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
@@ -163,21 +149,21 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white z-50 lg:hidden shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-zinc-950 z-50 lg:hidden shadow-2xl border-l border-white/10"
             >
-              <div className="flex items-center justify-between px-6 h-20 border-b border-zinc-100">
+              <div className="flex items-center justify-between px-6 h-20 border-b border-white/10">
                 <div className="flex items-center gap-2.5">
                   <div className="w-9 h-9 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center shadow-md">
                     <span className="text-white font-bold">S</span>
                   </div>
                   <div>
-                    <span className="block text-base font-bold text-accent leading-tight">Saffron</span>
-                    <span className="block text-[10px] tracking-[0.2em] uppercase text-muted">Karachi Grill</span>
+                    <span className="block text-base font-bold text-white leading-tight">Saffron</span>
+                    <span className="block text-[10px] tracking-[0.2em] uppercase text-zinc-500">Karachi Grill</span>
                   </div>
                 </div>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-2 rounded-xl text-accent/60 hover:text-accent hover:bg-zinc-100 transition-all"
+                  className="p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-white/5 transition-all"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -199,13 +185,13 @@ export default function Header() {
                         onClick={() => setMobileOpen(false)}
                         className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                           isActive
-                            ? "bg-primary/5 text-primary"
-                            : "text-accent/70 hover:text-accent hover:bg-zinc-50"
+                            ? "bg-primary/10 text-primary"
+                            : "text-zinc-400 hover:text-white hover:bg-white/5"
                         }`}
                       >
                         {link.label}
                         <ChevronRight className={`w-4 h-4 transition-all ${
-                          isActive ? "text-primary" : "text-zinc-300"
+                          isActive ? "text-primary" : "text-zinc-600"
                         }`} />
                       </Link>
                     </motion.div>
@@ -213,11 +199,11 @@ export default function Header() {
                 })}
               </nav>
 
-              <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-zinc-100">
+              <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10">
                 <Link
                   href="/reservations"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center w-full py-3 bg-accent text-white rounded-xl text-sm font-medium hover:bg-accent/90 transition-all duration-200 shadow-md"
+                  className="flex items-center justify-center w-full py-3 bg-primary text-white rounded-xl text-sm font-medium hover:bg-primary-dark transition-all duration-200 shadow-md"
                 >
                   Reserve a Table
                 </Link>

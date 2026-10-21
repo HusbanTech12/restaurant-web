@@ -10,7 +10,7 @@ export default function ReviewsPage() {
 
   return (
     <>
-      <section className="relative pt-32 pb-20 bg-accent overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-zinc-950 overflow-hidden">
         <div
           className="absolute inset-0 opacity-20"
           style={{
@@ -80,7 +80,7 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-accent text-white text-center">
+      <section className="py-20 bg-zinc-950 text-white text-center border-t border-white/5">
         <div className="max-w-3xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

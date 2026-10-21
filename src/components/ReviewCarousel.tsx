@@ -12,7 +12,7 @@ export default function ReviewCarousel() {
   const next = () => setCurrent((c) => (c === reviews.length - 1 ? 0 : c + 1));
 
   return (
-    <section className="py-20 sm:py-28 bg-accent text-white">
+    <section className="py-20 sm:py-28 bg-[#0f0f0f] text-white border-y border-white/5">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="text-primary font-semibold text-sm tracking-widest uppercase">Testimonials</span>

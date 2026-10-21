@@ -49,8 +49,8 @@ export default function Hero() {
             backgroundImage: "url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=1080&fit=crop)",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/65" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-black/30" />
       </motion.div>
 
       <FloatingShape className="w-72 h-72 bg-primary/15 blur-3xl top-1/4 -left-20" delay={0} />

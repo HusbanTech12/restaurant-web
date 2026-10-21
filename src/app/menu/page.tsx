@@ -6,7 +6,7 @@ import MenuGrid from "@/components/MenuGrid";
 export default function MenuPage() {
   return (
     <>
-      <section className="relative pt-32 pb-20 bg-accent overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-zinc-950 overflow-hidden">
         <div
           className="absolute inset-0 opacity-20"
           style={{

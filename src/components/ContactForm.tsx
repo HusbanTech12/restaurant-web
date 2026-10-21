@@ -43,7 +43,7 @@ export default function ContactForm() {
         animate={{ opacity: 1, scale: 1 }}
         className="text-center py-12"
       >
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
+        <div className="w-16 h-16 bg-green-500/15 rounded-full flex items-center justify-center mx-auto mb-5">
           <CheckCircle className="w-8 h-8 text-green-600" />
         </div>
         <h3 className="text-xl font-bold text-accent mb-2">Message Sent!</h3>
@@ -63,7 +63,7 @@ export default function ContactForm() {
             required
             value={form.name}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+            className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
         </div>
         <div>
@@ -74,7 +74,7 @@ export default function ContactForm() {
             required
             value={form.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+            className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
         </div>
       </div>
@@ -86,7 +86,7 @@ export default function ContactForm() {
           required
           value={form.subject}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+          className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
         />
       </div>
       <div>
@@ -97,7 +97,7 @@ export default function ContactForm() {
           required
           value={form.message}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
+          className="w-full px-4 py-3 bg-zinc-900 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
         />
       </div>
       {error && <p className="text-red-500 text-sm text-center">{error}</p>}
