@@ -1,29 +1,33 @@
-import OpenAI from "openai";
-import Groq from "groq-sdk";
+import type OpenAI from "openai";
 import { db } from "@/lib/db";
 import { menuItems, reservations } from "@/db/schema";
 import { eq, and, like, or, sql } from "drizzle-orm";
 
-let openaiClient: OpenAI | null = null;
-let groqClient: Groq | null = null;
+type OpenAIClient = InstanceType<typeof import("openai").default>;
+type GroqClient = InstanceType<typeof import("groq-sdk").default>;
 
-export function getOpenAI() {
+let openaiClient: OpenAIClient | null = null;
+let groqClient: GroqClient | null = null;
+
+export async function getOpenAI() {
   if (!openaiClient) {
     const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey) {
       throw new Error("OPENAI_API_KEY is not set");
     }
+    const { default: OpenAI } = await import("openai");
     openaiClient = new OpenAI({ apiKey });
   }
   return openaiClient;
 }
 
-export function getGroq() {
+export async function getGroq() {
   if (!groqClient) {
     const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
       throw new Error("GROQ_API_KEY is not set");
     }
+    const { default: Groq } = await import("groq-sdk");
     groqClient = new Groq({ apiKey });
   }
   return groqClient;
