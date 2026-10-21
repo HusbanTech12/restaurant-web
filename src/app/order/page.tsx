@@ -20,7 +20,7 @@ export default function OrderPage() {
             Order for Pickup or Delivery
           </h1>
           <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-            Enjoy Savory from the comfort of your home. Browse our menu, add to cart, and we&apos;ll take care of the rest.
+            Order Saffron at home. Pickup from Boat Basin, or delivery across Clifton and DHA.
           </p>
         </div>
       </section>

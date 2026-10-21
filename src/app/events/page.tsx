@@ -23,7 +23,7 @@ export default function EventsPage() {
             <span className="text-primary font-semibold text-sm tracking-widest uppercase">Celebrate With Us</span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-3 mb-4">Events &amp; Catering</h1>
             <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-              Make your next occasion unforgettable with Savory&apos;s exceptional catering and event services.
+              Private rooms, a full buyout, or catering for a dawat across Karachi.
             </p>
           </motion.div>
         </div>
@@ -83,7 +83,7 @@ export default function EventsPage() {
           >
             <h2 className="text-3xl font-bold text-accent mb-4">Let&apos;s Plan Your Event</h2>
             <p className="text-muted text-lg mb-8 max-w-2xl mx-auto">
-              Contact our events team to discuss your vision. We&apos;ll work with you to create a customized experience that exceeds expectations.
+              Tell us the date, the headcount, and whether it is at the restaurant or at your hall. We will send a menu in rupees.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
@@ -93,10 +93,10 @@ export default function EventsPage() {
                 Contact Us
               </Link>
               <a
-                href="tel:+1234567890"
+                href="tel:+922135862200"
                 className="text-accent border border-border px-8 py-3.5 rounded-full font-semibold hover:bg-zinc-50 hover:shadow-lg hover:border-primary/20 transition-all duration-200 active:scale-95"
               >
-                Call (555) 123-4567
+                Call 021 3586 2200
               </a>
             </div>
           </motion.div>

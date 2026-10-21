@@ -24,7 +24,7 @@ export default function ReviewsPage() {
             <span className="text-primary font-semibold text-sm tracking-widest uppercase">Testimonials</span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-3 mb-4">Guest Reviews</h1>
             <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-              See what our guests have to say about their Savory experience.
+              Guests who ate with us in Clifton, Karachi.
             </p>
           </motion.div>
         </div>
@@ -89,7 +89,7 @@ export default function ReviewsPage() {
           >
             <h2 className="text-3xl font-bold mb-4">Share Your Experience</h2>
             <p className="text-zinc-400 mb-8 text-lg">
-              Had a great meal at Savory? We&apos;d love to hear about it.
+              Had a meal at Saffron? We would like to hear about it.
             </p>
             <a
               href="/contact"

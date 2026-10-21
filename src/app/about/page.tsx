@@ -6,17 +6,17 @@ import { ArrowRight, Award, Heart, Leaf, Users } from "lucide-react";
 import GlowCard from "@/components/GlowCard";
 
 const values = [
-  { icon: Heart, title: "Passion", desc: "We pour our hearts into every dish, driven by a love for culinary excellence." },
-  { icon: Leaf, title: "Sustainability", desc: "We prioritize local, seasonal ingredients and eco-friendly practices." },
-  { icon: Users, title: "Community", desc: "We believe in bringing people together through the power of great food." },
-  { icon: Award, title: "Excellence", desc: "We never compromise on quality, from ingredient sourcing to presentation." },
+  { icon: Heart, title: "Passion", desc: "The handi, the dum, and the tandoor are cooked the same way on a quiet Tuesday as on a full Friday." },
+  { icon: Leaf, title: "Fresh Masala", desc: "We grind our own masala and buy meat and vegetables for the day, not for the week." },
+  { icon: Users, title: "Community", desc: "Sunday lunch, office dinners, and family dawats. The room is built for people who eat together." },
+  { icon: Award, title: "Honest Plates", desc: "Portions are clear, the bill is in rupees, and we would rather send a dish back than serve it late." },
 ];
 
 const team = [
-  { name: "Marco Rossi", role: "Executive Chef", image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&h=400&fit=crop" },
-  { name: "Sophie Laurent", role: "Pastry Chef", image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=400&fit=crop" },
-  { name: "James Chen", role: "Sous Chef", image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=400&fit=crop" },
-  { name: "Ana Martinez", role: "General Manager", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop" },
+  { name: "Ahmed Raza", role: "Executive Chef", image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&h=400&fit=crop" },
+  { name: "Hira Siddiqui", role: "Mithai Chef", image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=400&fit=crop" },
+  { name: "Bilal Qureshi", role: "Tandoor Chef", image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=400&fit=crop" },
+  { name: "Sana Malik", role: "General Manager", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop" },
 ];
 
 export default function AboutPage() {
@@ -36,7 +36,7 @@ export default function AboutPage() {
             <span className="text-primary font-semibold text-sm tracking-widest uppercase">Our Story</span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-3 mb-4">About Us</h1>
             <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-              The story behind Savory Bistro &amp; Grill — where passion meets plate.
+              The story behind Saffron Karachi Grill, a family table in Clifton.
             </p>
           </motion.div>
         </div>
@@ -56,18 +56,18 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-muted leading-relaxed">
                 <p>
-                  Savory Bistro &amp; Grill opened its doors in 2015 with a simple mission: to create a dining experience 
-                  that celebrates the art of food. Founded by Chef Marco Rossi, our restaurant combines traditional 
-                  techniques with modern creativity.
+                  Saffron opened in Boat Basin in 2015. Chef Ahmed Raza wanted a room where karahi, nihari, 
+                  and biryani were cooked the way Karachi families already knew them, with a service standard 
+                  you can take a client to.
                 </p>
                 <p>
-                  What started as a small neighborhood bistro has grown into a celebrated dining destination, 
-                  known for our commitment to quality, creativity, and warm hospitality. Every ingredient is 
-                  carefully sourced, every recipe thoughtfully developed, and every plate beautifully presented.
+                  What started as a neighbourhood grill is now a regular booking for Clifton and DHA. 
+                  Meat is bought for the day. Naan comes off the tandoor to order. Mithai is made in-house, 
+                  not brought in from a shop.
                 </p>
                 <p>
-                  We believe that dining is more than just eating — it&apos;s about creating memories, celebrating 
-                  moments, and connecting with the people around us. That&apos;s the Savory difference.
+                  People book us for Sunday lunch with parents, for a quiet anniversary, and for a dawat 
+                  that has outgrown the house. That is the Saffron difference.
                 </p>
               </div>
             </motion.div>
@@ -154,7 +154,7 @@ export default function AboutPage() {
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Dine With Us?</h2>
             <p className="text-zinc-400 mb-8 text-lg">
-              Experience the Savory difference — book your table today.
+              Book a table at Boat Basin, or ask us to cater the dawat.
             </p>
             <Link
               href="/reservations"

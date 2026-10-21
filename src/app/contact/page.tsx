@@ -5,13 +5,13 @@ import ContactForm from "@/components/ContactForm";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const contactInfo = [
-  { icon: MapPin, title: "Address", content: "123 Gourmet Avenue\nCulinary District\nNew York, NY 10001" },
-  { icon: Phone, title: "Phone", content: "(555) 123-4567", href: "tel:+1234567890" },
-  { icon: Mail, title: "Email", content: "info@savorybistro.com", href: "mailto:info@savorybistro.com" },
+  { icon: MapPin, title: "Address", content: "Shop 12, Boat Basin\nKhayaban-e-Roomi, Clifton\nKarachi" },
+  { icon: Phone, title: "Phone", content: "021 3586 2200", href: "tel:+922135862200" },
+  { icon: Mail, title: "Email", content: "hello@saffronkarachi.com", href: "mailto:hello@saffronkarachi.com" },
   {
     icon: Clock,
     title: "Hours",
-    content: "Mon-Thu: 11AM-10PM\nFri-Sat: 11AM-11PM\nSun: 10AM-9PM",
+    content: "Mon-Thu: 12PM-11:30PM\nFri-Sat: 12PM-12:30AM\nSun: 1PM-11:30PM",
   },
 ];
 
@@ -85,7 +85,7 @@ export default function ContactPage() {
                 className="bg-card border border-border rounded-2xl overflow-hidden h-64"
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.966309591936!2d-73.9857!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjIiTiA3M8KwNTknMTIuNCJX!5e0!3m2!1sen!2sus!4v1"
+                  src="https://maps.google.com/maps?q=Boat%20Basin%20Clifton%20Karachi&z=15&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

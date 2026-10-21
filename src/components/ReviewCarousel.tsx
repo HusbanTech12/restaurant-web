@@ -20,7 +20,7 @@ export default function ReviewCarousel() {
             What Our Guests Say
           </h2>
           <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-            Hear from our guests about their dining experiences at Savory.
+            Hear from guests who ate with us in Clifton, Karachi.
           </p>
         </div>
 

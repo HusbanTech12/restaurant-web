@@ -20,7 +20,7 @@ export default function GalleryPage() {
             Gallery
           </h1>
           <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-            Explore the ambiance, cuisine, and moments that define the Savory experience.
+            The dining room, the tandoor, and the plates we serve in Clifton.
           </p>
         </div>
       </section>

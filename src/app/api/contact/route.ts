@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: "onboarding@resend.dev",
       to: email,
-      subject: "We received your message — Savory Bistro & Grill",
+      subject: "We received your message — Saffron Karachi Grill",
       html: `<p>Hi ${name},</p><p>Thanks for reaching out! We'll get back to you within 24 hours.</p><p>Your message: "${message}"</p>`,
     });
 

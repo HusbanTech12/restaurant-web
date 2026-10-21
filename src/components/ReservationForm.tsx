@@ -74,7 +74,7 @@ export default function ReservationForm() {
             required
             value={form.name}
             onChange={handleChange}
-            placeholder="John Doe"
+            placeholder="Ahmed Khan"
             className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
         </div>
@@ -86,7 +86,7 @@ export default function ReservationForm() {
             required
             value={form.email}
             onChange={handleChange}
-            placeholder="john@example.com"
+            placeholder="ahmed@email.com"
             className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
         </div>
@@ -98,7 +98,7 @@ export default function ReservationForm() {
             required
             value={form.phone}
             onChange={handleChange}
-            placeholder="(555) 123-4567"
+            placeholder="0300 1234567"
             className="w-full px-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
         </div>
@@ -145,7 +145,7 @@ export default function ReservationForm() {
               className="w-full pl-10 pr-4 py-3 bg-white border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all appearance-none"
             >
               <option value="">Select a time</option>
-              {["11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", "1:00 PM", "1:30 PM", "2:00 PM", "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM"].map((t) => (
+              {["12:30 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM", "9:30 PM", "10:00 PM", "10:30 PM"].map((t) => (
                 <option key={t} value={t}>{t}</option>
               ))}
             </select>

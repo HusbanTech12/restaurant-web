@@ -26,7 +26,7 @@ export default function MenuPage() {
               Our Menu
             </h1>
             <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-              Explore our carefully curated selection of dishes, crafted with the finest ingredients and a passion for flavor.
+              Karahi, biryani, BBQ, and mithai. Every price on this menu is in Pakistani rupees.
             </p>
           </motion.div>
         </div>

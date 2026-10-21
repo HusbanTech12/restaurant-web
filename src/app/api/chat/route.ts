@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { openai, tools, getMenu, checkAvailability } from "@/lib/ai";
 
-const systemPrompt = `You are a helpful restaurant concierge for Savory Bistro & Grill.
+const systemPrompt = `You are a helpful restaurant concierge for Saffron Karachi Grill in Clifton, Karachi. Prices are in Pakistani rupees.
 Help users with: menu recommendations (dietary, price, taste), reservation availability, and general questions about the restaurant.
 Be friendly and concise. If asked about the menu, use the get_menu tool. If asked about reservations, use the check_availability tool.`;
 

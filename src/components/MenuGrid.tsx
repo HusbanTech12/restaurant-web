@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
-import { menuItems, categories } from "@/data/menu";
+import { menuItems, categories, formatPkr } from "@/data/menu";
 import GlowCard from "@/components/GlowCard";
 
 export default function MenuGrid() {
@@ -26,7 +26,7 @@ export default function MenuGrid() {
             Our Menu
           </h1>
           <p className="text-muted max-w-2xl mx-auto text-lg">
-            A carefully curated menu featuring seasonal ingredients and global inspiration.
+            Biryani, karahi, charcoal BBQ, and mithai. Prices are in Pakistani rupees.
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export default function MenuGrid() {
                 <div className="p-5">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="text-lg font-semibold text-accent">{item.name}</h3>
-                    <span className="text-lg font-bold text-primary">${item.price}</span>
+                    <span className="text-lg font-bold text-primary">{formatPkr(item.price)}</span>
                   </div>
                   <p className="text-sm text-muted leading-relaxed mb-3">{item.description}</p>
                   {item.dietary && item.dietary.length > 0 && (

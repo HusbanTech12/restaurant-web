@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { orders, orderItems } from "@/db/schema";
-import { auth } from "@clerk/nextjs/server";
 import { resend } from "@/lib/email";
 
 export async function POST(req: Request) {
   try {
-    const { userId } = await auth();
     const body = await req.json();
     const { customerName, customerEmail, customerPhone, items } = body;
 
@@ -17,7 +15,7 @@ export async function POST(req: Request) {
     const total = items.reduce((sum: number, i: { price: number; quantity: number }) => sum + i.price * i.quantity, 0);
 
     const [order] = await db.insert(orders).values({
-      userId: userId ?? null,
+      userId: null,
       customerName,
       customerEmail,
       customerPhone,
@@ -37,8 +35,8 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: "onboarding@resend.dev",
       to: customerEmail,
-      subject: "Order Confirmed — Savory Bistro & Grill",
-      html: `<p>Hi ${customerName},</p><p>Your order ($${total.toFixed(2)}) has been received.</p><p>We'll notify you when it's ready.</p>`,
+      subject: "Order received — Saffron Karachi Grill",
+      html: `<p>Hi ${customerName},</p><p>Your order (Rs ${Math.round(total).toLocaleString("en-PK")}) has been received.</p><p>We'll notify you when it's ready.</p>`,
     });
 
     return NextResponse.json(order, { status: 201 });

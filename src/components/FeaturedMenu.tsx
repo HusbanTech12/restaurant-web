@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { menuItems, categories } from "@/data/menu";
+import { menuItems, categories, formatPkr } from "@/data/menu";
 import GlowCard from "@/components/GlowCard";
 
 export default function FeaturedMenu() {
@@ -23,7 +23,7 @@ export default function FeaturedMenu() {
             Featured Dishes
           </h2>
           <p className="text-muted max-w-2xl mx-auto text-lg">
-            Discover our chef&apos;s handpicked selection of signature dishes, crafted with passion and the finest ingredients.
+            The plates guests order again: biryani, karahi, and charcoal BBQ from our Clifton kitchen.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ export default function FeaturedMenu() {
                 <div className="p-5">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="text-lg font-semibold text-accent">{item.name}</h3>
-                    <span className="text-lg font-bold text-primary">${item.price}</span>
+                    <span className="text-lg font-bold text-primary">{formatPkr(item.price)}</span>
                   </div>
                   <p className="text-sm text-muted leading-relaxed mb-3">{item.description}</p>
                   {item.dietary && item.dietary.length > 0 && (

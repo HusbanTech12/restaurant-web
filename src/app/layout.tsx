@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,9 +10,9 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Savory Bistro & Grill | Premium Dining Experience",
-  description: "Experience exceptional cuisine crafted with passion at Savory Bistro & Grill. Handcrafted dishes, premium ingredients, and an unforgettable dining atmosphere.",
-  keywords: "restaurant, bistro, grill, fine dining, cuisine, reservations, online ordering",
+  title: "Saffron Karachi Grill | Clifton, Karachi",
+  description: "Karahi, biryani, and charcoal BBQ at Saffron Karachi Grill in Boat Basin, Clifton. Reserve a table or order for pickup and delivery across Karachi.",
+  keywords: "Karachi restaurant, Clifton, biryani, karahi, BBQ, reservations, online ordering",
 };
 
 export default function RootLayout({
@@ -22,14 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
-        <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
+    </html>
   );
 }

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, ShoppingBag, X, ArrowRight, Trash2, CheckCircle, Loader2 } from "lucide-react";
-import { menuItems, categories } from "@/data/menu";
+import { menuItems, categories, formatPkr } from "@/data/menu";
 import GlowCard from "@/components/GlowCard";
 
 interface CartItem {
@@ -112,7 +112,7 @@ export default function OrderingSystem() {
           Pick Your Favorites
         </h1>
         <p className="text-muted max-w-2xl mx-auto text-lg">
-          Choose from our menu and we&apos;ll have it ready for pickup or delivery.
+          Order for pickup at Boat Basin, or delivery across Clifton and DHA.
         </p>
       </div>
 
@@ -161,7 +161,7 @@ export default function OrderingSystem() {
                 <div className="p-4">
                   <div className="flex items-start justify-between mb-1">
                     <h3 className="text-base font-semibold text-accent">{item.name}</h3>
-                    <span className="text-base font-bold text-primary">${item.price}</span>
+                    <span className="text-base font-bold text-primary">{formatPkr(item.price)}</span>
                   </div>
                   <p className="text-xs text-muted mb-3 line-clamp-2">{item.description}</p>
                   <button
@@ -204,7 +204,7 @@ export default function OrderingSystem() {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <p className="text-sm text-muted mb-4">Total: <span className="font-bold text-accent">${total.toFixed(2)}</span> ({itemCount} items)</p>
+            <p className="text-sm text-muted mb-4">Total: <span className="font-bold text-accent">{formatPkr(total)}</span> ({itemCount} items)</p>
             <form onSubmit={handlePlaceOrder} className="space-y-3">
               <input
                 type="text"
@@ -255,7 +255,7 @@ export default function OrderingSystem() {
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div>
               <span className="text-sm text-muted">{itemCount} {itemCount === 1 ? "item" : "items"} in order</span>
-              <span className="text-xl font-bold text-accent ml-3">${total.toFixed(2)}</span>
+              <span className="text-xl font-bold text-accent ml-3">{formatPkr(total)}</span>
             </div>
             <div className="flex gap-3">
               <button
@@ -289,7 +289,7 @@ export default function OrderingSystem() {
                         <img src={ci.image} alt={ci.name} className="w-12 h-12 rounded-lg object-cover" />
                         <div>
                           <p className="text-sm font-medium text-accent">{ci.name}</p>
-                          <p className="text-xs text-muted">${ci.price} each</p>
+                          <p className="text-xs text-muted">{formatPkr(ci.price)} each</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
@@ -309,7 +309,7 @@ export default function OrderingSystem() {
                           </button>
                         </div>
                         <span className="text-sm font-bold text-accent w-16 text-right">
-                          ${(ci.price * ci.quantity).toFixed(2)}
+                          {formatPkr(ci.price * ci.quantity)}
                         </span>
                         <button
                           onClick={() => removeItem(ci.id)}

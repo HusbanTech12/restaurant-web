@@ -60,9 +60,9 @@ export default function ReservationsPage() {
                   Hours
                 </h3>
                 <div className="space-y-2 text-sm">
-                  <div className="flex justify-between"><span className="text-muted">Mon - Thu</span><span className="font-medium">11AM - 10PM</span></div>
-                  <div className="flex justify-between"><span className="text-muted">Fri - Sat</span><span className="font-medium">11AM - 11PM</span></div>
-                  <div className="flex justify-between"><span className="text-muted">Sunday</span><span className="font-medium">10AM - 9PM</span></div>
+                  <div className="flex justify-between"><span className="text-muted">Mon - Thu</span><span className="font-medium">12PM - 11:30PM</span></div>
+                  <div className="flex justify-between"><span className="text-muted">Fri - Sat</span><span className="font-medium">12PM - 12:30AM</span></div>
+                  <div className="flex justify-between"><span className="text-muted">Sunday</span><span className="font-medium">1PM - 11:30PM</span></div>
                 </div>
               </motion.div>
 
@@ -76,7 +76,7 @@ export default function ReservationsPage() {
                   <MapPin className="w-5 h-5 text-primary" />
                   Location
                 </h3>
-                <p className="text-sm text-muted">123 Gourmet Avenue<br />Culinary District<br />New York, NY 10001</p>
+                <p className="text-sm text-muted">Shop 12, Boat Basin<br />Khayaban-e-Roomi, Clifton<br />Karachi</p>
               </motion.div>
 
               <motion.div
@@ -89,8 +89,8 @@ export default function ReservationsPage() {
                   <Phone className="w-5 h-5 text-primary" />
                   Contact
                 </h3>
-                <p className="text-sm text-muted">(555) 123-4567</p>
-                <a href="mailto:reservations@savorybistro.com" className="text-sm text-primary hover:underline">reservations@savorybistro.com</a>
+                <p className="text-sm text-muted">021 3586 2200</p>
+                <a href="mailto:reserve@saffronkarachi.com" className="text-sm text-primary hover:underline">reserve@saffronkarachi.com</a>
               </motion.div>
 
               <motion.div
@@ -103,7 +103,7 @@ export default function ReservationsPage() {
                   <CalendarDays className="w-5 h-5 text-primary" />
                   Private Events
                 </h3>
-                <p className="text-sm text-muted mb-3">Looking to host a special event? We offer private dining rooms and full buyout options.</p>
+                <p className="text-sm text-muted mb-3">Planning a dawat, mehndi, or office dinner? We do private rooms, a full buyout, and catering.</p>
                 <a href="/events" className="text-sm text-primary font-medium hover:underline">Learn More &rarr;</a>
               </motion.div>
             </div>

@@ -35,23 +35,23 @@ function Counter({ from = 0, to, duration = 2 }: { from?: number; to: number; du
 const features = [
   {
     icon: Utensils,
-    title: "Farm-to-Table Freshness",
-    description: "We source ingredients from local farms to bring you the freshest flavors in every dish.",
+    title: "Daily Fresh Masala",
+    description: "Chicken, mutton, and vegetables come in fresh. The masala is ground in-house, not from a packet.",
   },
   {
     icon: Award,
-    title: "Award-Winning Cuisine",
-    description: "Recognized for culinary excellence with multiple industry awards and rave reviews.",
+    title: "A Karachi Favourite",
+    description: "Regulars from Clifton and DHA come back for the karahi, the biryani, and the tandoor.",
   },
   {
     icon: CalendarDays,
-    title: "Reserve Your Experience",
-    description: "Book a table for any occasion and let us create a memorable dining experience for you.",
+    title: "Reserve Your Table",
+    description: "Book for a family dinner, a client lunch, or a small celebration in Boat Basin.",
   },
   {
     icon: Truck,
-    title: "Order for Pickup",
-    description: "Enjoy Savory at home with our easy online ordering system for pickup and delivery.",
+    title: "Order for Home",
+    description: "Pickup from the restaurant, or delivery across Clifton and DHA.",
   },
 ];
 
@@ -87,7 +87,7 @@ export default function Home() {
 
       <section className="py-20 sm:py-28 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader label="Why Choose Us" title="The Savory" highlight="Difference" />
+          <SectionHeader label="Why Choose Us" title="The Saffron" highlight="Difference" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, i) => (
               <motion.div
@@ -162,9 +162,8 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.35 }}
                 className="text-muted leading-relaxed mb-6"
               >
-                Founded in 2015, Savory Bistro &amp; Grill was born from a simple belief: that great food brings people together. 
-                Our chefs combine culinary tradition with modern innovation, using locally-sourced ingredients to create dishes 
-                that delight the senses.
+                Saffron opened in Clifton in 2015 with one idea: a Karachi table should feel like a good dawat. 
+                The kitchen still cooks karahi in the handi, biryani on dum, and boti over charcoal.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -173,8 +172,8 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.45 }}
                 className="text-muted leading-relaxed mb-8"
               >
-                Every plate tells a story of dedication, creativity, and an unwavering commitment to quality. 
-                From our handcrafted cocktails to our artisanal desserts, every detail is carefully considered.
+                Families book us for Sunday lunch. Offices book the private section for client dinners. 
+                If you are ordering home, pickup is from Boat Basin and delivery covers Clifton and DHA.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -273,7 +272,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.35 }}
               className="text-muted text-lg mb-8 max-w-2xl mx-auto"
             >
-              Whether it&apos;s a romantic dinner, family celebration, or casual lunch — we look forward to serving you.
+              A family dinner, a client lunch, or karahi at home — the table is in Boat Basin, Clifton.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

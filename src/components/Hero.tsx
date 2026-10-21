@@ -74,7 +74,7 @@ export default function Hero() {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm text-white/90 tracking-widest uppercase mb-6 border"
             >
-              Welcome to Savory Bistro &amp; Grill
+              Welcome to Saffron Karachi Grill
             </motion.span>
           </motion.div>
 
@@ -104,8 +104,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.5 }}
             className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
           >
-            Indulge in a culinary journey of handcrafted dishes made from the freshest locally-sourced ingredients,
-            paired with an exceptional dining experience.
+            Karahi, dum biryani, and charcoal BBQ in Clifton. A family table in Boat Basin, with prices in rupees.
           </motion.p>
 
           <motion.div

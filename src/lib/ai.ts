@@ -19,7 +19,7 @@ export const tools: OpenAI.Chat.Completions.ChatCompletionTool[] = [
         properties: {
           category: { type: "string", description: "Category filter: Appetizers, Mains, Desserts, Beverages" },
           query: { type: "string", description: "Search keyword in name or description" },
-          maxPrice: { type: "number", description: "Maximum price in dollars" },
+          maxPrice: { type: "number", description: "Maximum price in Pakistani rupees" },
           dietary: { type: "string", description: "Dietary filter: v (vegetarian), gf (gluten-free)" },
         },
       },

@@ -25,7 +25,7 @@ export default function GalleryGrid() {
             Gallery
           </h1>
           <p className="text-muted max-w-2xl mx-auto text-lg">
-            A glimpse into our atmosphere, cuisine, and the moments that make Savory special.
+            A glimpse of the room, the tandoor, and the plates we send out in Karachi.
           </p>
         </div>
 
